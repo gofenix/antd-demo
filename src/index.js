@@ -18,7 +18,7 @@ const columns = [
     title: 'Name',
     dataIndex: 'name',
     defaultSortOrder: 'ascend',
-    sorter: (a, b) => a.name.length - b.name.length,
+    sorter: (a, b) => a.name.localeCompare(b.name),
     render: text => <a href={`https://www.baidu.com/s?wd=${encodeURI(text)}`} target='_blank'>  {text} </a>,
   },
 
@@ -26,7 +26,7 @@ const columns = [
     title: '标签',
     dataIndex: 'tags',
     defaultSortOrder: 'descend',
-    sorter: (a, b) => a.tags.length - b.tags.length,
+    sorter: (a, b) => a.tags.localeCompare(b.tags),
   },
 
 
@@ -35,7 +35,7 @@ const columns = [
     title: '简介',
     dataIndex: 'summary',
     defaultSortOrder: 'descend',
-    sorter: (a, b) => a.summary.length - b.summary.length,
+    sorter: (a, b) => a.summary.localeCompare(b.summary),
   },
 
 

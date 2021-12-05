@@ -11214,11 +11214,15 @@ function getData() {
             return {
                 name: item.name,
                 url: `https://www.baidu.com/s?wd=${encodeURI(item.name)}`,
-                summary: item.summary,
+                summary: item.summary || "",
                 tags: JSON.stringify(item.tags)
             }
         }
-    )
+    ).filter((item) => {
+        const patrn = /[\u4E00-\u9FA5]|[\uFE30-\uFFA0]/gi;
+
+        return patrn.exec(item.summary)
+    })
 }
 
 
